@@ -13,6 +13,10 @@
 			$tabControlBarList.find('li').removeClass('mTabActive');
 		};
 		
+		$tabWrapper.activateTab = function(index) {
+			$tabWrapper.find('.mTab').get(index).activateTab();
+		};
+		
 		$tabWrapper.find('.mTab').each(function(index, element) {
 			var $element = $(element);
 			var $tab = $('<li><a href="javascript://">' + $element.attr('data-mTabTitle') + '</a></li>').appendTo($tabControlBarList);
