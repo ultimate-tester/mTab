@@ -4,6 +4,8 @@
 			startTab: 0
 		}, options);
 		
+		var tabs = [];
+		
 		var $tabWrapper = $(this);
 		var $tabControlBar = $('<div class="mTabControlBar"></div>').prependTo($tabWrapper);
 		var $tabControlBarList = $('<ul></ul>').prependTo($tabControlBar);
@@ -14,7 +16,7 @@
 		};
 		
 		$tabWrapper.activateTab = function(index) {
-			$tabWrapper.find('.mTab').get(index).activateTab();
+			$tabWrapper.tabs[index].activateTab();
 		};
 		
 		$tabWrapper.find('.mTab').each(function(index, element) {
@@ -33,6 +35,10 @@
 			if(index == settings.startTab) {
 				$element.activateTab();
 			}
-		});		
+			
+			$element.tabs[index] = $element;
+		});
+		
+		return $tabWrapper;
 	};
 } (jQuery));
